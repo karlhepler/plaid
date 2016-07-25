@@ -2,7 +2,17 @@
 
 namespace OldTimeGuitarGuy\Plaid\Services;
 
-class Income extends Base\Service
+use OldTimeGuitarGuy\Plaid\Contracts\ManagesUser;
+use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
+
+class Income extends Base\Service implements ManagesUser
 {
-    //
+    use UserManagement;
+
+    /**
+     * The base endpoint for all requests
+     *
+     * @var string
+     */
+    protected $endpoint = '/income';
 }
