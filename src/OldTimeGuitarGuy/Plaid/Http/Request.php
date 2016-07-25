@@ -28,7 +28,7 @@ class Request implements RequestContract
      *
      * @var boolean
      */
-    protected $isProduction;
+    protected $use_production;
 
     /**
      * Create a new instance of Plaid Request
@@ -36,13 +36,13 @@ class Request implements RequestContract
      * @param \GuzzleHttp\ClientInterface $http
      * @param string $client_id
      * @param string $secret
-     * @param string $isProduction
+     * @param string $use_production
      */
-    public function __construct(ClientInterface $http, $client_id, $secret, $isProduction = false)
+    public function __construct(ClientInterface $http, $client_id, $secret, $use_production = false)
     {
         $this->http = $http;
         $this->credentials = compact('client_id', 'secret');
-        $this->isProduction = $isProduction;
+        $this->use_production = $use_production;
     }
 
     /**
@@ -171,7 +171,7 @@ class Request implements RequestContract
      */
     protected function base()
     {
-        return $this->isProduction
+        return $this->use_production
             ? self::PRODUCTION_URI
             : self::DEVELOPMENT_URI;
     }
