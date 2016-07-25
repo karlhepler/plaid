@@ -24,11 +24,6 @@ class Connect extends Base\Service
 
     /**
      * Add Connect user
-     *
-     * Test Credentials:
-     * username = plaid_test
-     * password = plaid_good
-     * pin = 1234
      * 
      * https://plaid.com/docs/api/#add-connect-user
      *

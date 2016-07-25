@@ -120,7 +120,7 @@ Services Implemented
 ---------------------
 
 - [x] Connect
-- [ ] Auth
+- [x] Auth
 - [ ] Info
 - [ ] Income
 - [ ] Risk
@@ -128,6 +128,16 @@ Services Implemented
 - [ ] Upgrade
 - [ ] Institutions
 - [ ] Categories
+
+Testing
+--------
+```
+client_id = test_id
+secret = test_secret
+username = plaid_test
+password = plaid_good
+pin = 1234
+```
 
 Contributing
 -------------
