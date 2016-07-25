@@ -139,6 +139,11 @@ password = plaid_good
 pin = 1234
 ```
 
+TODO
+-----
+It seems that all of the routes that have user management only have one other method - actually getting the user data.
+I should be able to refactor this and make use of abstract classes.
+
 Contributing
 -------------
 
