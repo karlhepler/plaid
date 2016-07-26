@@ -6,7 +6,8 @@ use OldTimeGuitarGuy\Plaid\Contracts\User;
 
 /**
  * It's the same as a normal service,
- * but also provides an instance of UserManager.
+ * but also provides an instance of UserManager
+ * and a get method to get the endpoint's main data.
  */
 abstract class UserService extends Service
 {
@@ -41,8 +42,9 @@ abstract class UserService extends Service
      */
     public function get(User $user, array $options = [])
     {
-        return $this->request->post($this->endpoint('get'),
-            array_merge(['access_token' => $user->accessToken()], $options)
-        );
+        return $this->request->post($this->endpoint('get'), [
+            'access_token' => $user->accessToken(),
+            'options' => $options,
+        ]);
     }
 }
