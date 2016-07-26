@@ -49,14 +49,19 @@ class ServiceTest extends TestCase
     /**
      * Get a singleton instance of test user
      *
+     * @param  string|null $accessToken
      * @return \OldTimeGuitarGuy\Plaid\Contracts\User
      */
-    protected function user()
+    protected function user($accessToken = null)
     {
+        if ( !is_null($accessToken) && $accessToken !== 'test_wells' ) {
+            return new TestUser($accessToken);
+        }
+
         if (isset($this->user)) {
             return $this->user;
         }
 
-        return $this->user = new TestUser;
+        return $this->user = new TestUser('test_wells');
     }
 }

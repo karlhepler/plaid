@@ -36,6 +36,7 @@ TESTS
 ```
 AuthService
  [x] Add user
+ [x] User mfa
  [x] Update user
  [x] Delete user
  [x] Upgrade user
@@ -50,6 +51,7 @@ CategoriesService
 
 ConnectService
  [x] Add user
+ [x] User mfa
  [x] Update user
  [x] Delete user
  [x] Upgrade user
@@ -57,6 +59,7 @@ ConnectService
 
 IncomeService
  [x] Add user
+ [x] User mfa
  [x] Update user
  [x] Delete user
  [x] Upgrade user
@@ -64,6 +67,7 @@ IncomeService
 
 InfoService
  [x] Add user
+ [x] User mfa
  [x] Update user
  [x] Delete user
  [x] Upgrade user
@@ -86,6 +90,7 @@ Response
 
 RiskService
  [x] Add user
+ [x] User mfa
  [x] Update user
  [x] Delete user
  [x] Upgrade user

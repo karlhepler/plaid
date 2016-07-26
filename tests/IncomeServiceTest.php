@@ -12,6 +12,14 @@ class IncomeServiceTest extends ServiceTest
         );
     }
 
+    public function testUserMfa()
+    {
+        $this->assertInstanceOf(
+            Response::class,
+            $this->plaid()->income()->user()->mfa($this->user('test_bofa'), 'tomato')
+        );
+    }
+
     public function testUpdateUser()
     {
         $this->assertInstanceOf(

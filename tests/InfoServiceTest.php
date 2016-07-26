@@ -12,6 +12,14 @@ class InfoServiceTest extends ServiceTest
         );
     }
 
+    public function testUserMfa()
+    {
+        $this->assertInstanceOf(
+            Response::class,
+            $this->plaid()->info()->user()->mfa($this->user('test_bofa'), 'tomato')
+        );
+    }
+
     public function testUpdateUser()
     {
         $this->assertInstanceOf(
