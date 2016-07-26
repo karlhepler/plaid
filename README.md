@@ -2,11 +2,7 @@ PHP Plaid API Client
 =====================
 > _with Laravel extras_
 
-This is a fairly robust set of classes that attempts
-to adhere strictly to the [Plaid API documentation](https://plaid.com/docs/api).
-
-It's not quite finished, but I've organized the code structure
-with expansion in mind. I have a list of service implementations below.
+This is a fairly robust set of classes that attempts to adhere strictly to the [Plaid API documentation](https://plaid.com/docs/api).
 
 -------------------------
 
