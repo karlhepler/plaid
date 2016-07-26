@@ -9,7 +9,7 @@ interface Response
      *
      * @return integer
      */
-    public function statusCode();
+    public function status();
 
     /**
      * If the method referenced is the name of
