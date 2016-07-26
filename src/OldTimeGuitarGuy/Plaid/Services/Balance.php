@@ -47,6 +47,6 @@ class Balance extends Base\UserService
      */
     protected function endpoint($path = null)
     {
-        return '/balance';
+        return $this->path('balance', $path);
     }
 }

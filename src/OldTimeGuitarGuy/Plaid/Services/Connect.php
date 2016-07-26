@@ -24,6 +24,6 @@ class Connect extends Base\UserService
      */
     protected function endpoint($path = null)
     {
-        return '/connect/'.ltrim($path, '/');
+        return $this->path('connect', $path);
     }
 }

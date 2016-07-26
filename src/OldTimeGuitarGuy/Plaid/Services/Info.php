@@ -21,6 +21,6 @@ class Info extends Base\UserService
      */
     protected function endpoint($path = null)
     {
-        return '/info/'.ltrim($path, '/');
+        return $this->path('income', $path);
     }
 }

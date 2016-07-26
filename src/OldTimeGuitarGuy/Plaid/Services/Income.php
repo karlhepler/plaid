@@ -21,6 +21,6 @@ class Income extends Base\UserService
      */
     protected function endpoint($path = null)
     {
-        return '/income/'.ltrim($path, '/');
+        return $this->path('income', $path);
     }
 }

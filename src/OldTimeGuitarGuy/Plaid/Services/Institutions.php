@@ -99,6 +99,6 @@ class Institutions extends Base\Service
      */
     protected function endpoint($path = null)
     {
-        return '/institutions/'.ltrim($path, '/');
+        return $this->path('institutions', $path);
     }
 }

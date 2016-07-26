@@ -36,6 +36,6 @@ class Categories extends Base\Service
      */
     protected function endpoint($path = null)
     {
-        return '/categories/'.ltrim($path, '/');
+        return $this->path('catagories', $path);
     }
 }

@@ -25,6 +25,6 @@ class Auth extends Base\UserService
      */
     protected function endpoint($path = null)
     {
-        return '/auth/'.ltrim($path, '/');
+        return $this->path('auth', $path);
     }
 }

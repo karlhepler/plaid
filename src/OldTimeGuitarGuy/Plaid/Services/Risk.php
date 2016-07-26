@@ -31,6 +31,6 @@ class Risk extends Base\UserService
      */
     protected function endpoint($path = null)
     {
-        return '/risk/'.ltrim($path, '/');
+        return $this->path('risk', $path);
     }
 }

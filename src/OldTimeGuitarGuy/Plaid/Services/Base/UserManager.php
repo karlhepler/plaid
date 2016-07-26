@@ -9,7 +9,7 @@ use OldTimeGuitarGuy\Plaid\Contracts\Http\Request;
 /**
  * Manage Plaid Users for a given endpoint.
  */
-class UserManager
+class UserManager extends Endpoint
 {
     /**
      * Plaid Request object
@@ -115,7 +115,7 @@ class UserManager
      * https://plaid.com/docs/api/#upgrade-user
      *
      * @param  User   $user
-     * @param  string $product
+     * @param  string $product The product to add for the user: auth, connect, income, info, or risk.
      * @param  array  $options
      *
      * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
@@ -134,14 +134,14 @@ class UserManager
     ///////////////////////
 
     /**
-     * Get the endpoint with optional appended path
+     * Get the main endpoint for this service
      *
      * @param  string|null $path
-     *
+     * 
      * @return string
      */
     protected function endpoint($path = null)
     {
-        return rtrim($this->endpoint, '/').'/'.ltrim($path, '/');
+        return $this->path($this->endpoint, $path);
     }
 }
