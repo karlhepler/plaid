@@ -2,9 +2,6 @@
 
 namespace OldTimeGuitarGuy\Plaid\Services;
 
-use OldTimeGuitarGuy\Plaid\Contracts\ManagesUser;
-use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
-
 /**
  * The /connect endpoint allows developers to receive user-authorized
  * transaction and account data. Data is contained in a set of transaction
@@ -16,29 +13,17 @@ use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
  *
  * https://plaid.com/docs/api/#connect
  */
-class Connect extends Base\Service implements ManagesUser
+class Connect extends Base\UserService
 {
-    use UserManagement;
-    
     /**
-     * The base endpoint for all requests
+     * Get the main endpoint for this service
      *
-     * @var string
-     */
-    protected $endpoint = '/connect';
-
-    /**
-     * Get Transactions
-     *
-     * https://plaid.com/docs/api/#get-transactions
-     *
-     * @param  string $access_token The ACCESS_TOKEN returned when the user was added.
-     * @param  array  $options
+     * @param  string|null $path
      * 
-     * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
+     * @return string
      */
-    public function getTransactions($access_token, $options = [])
+    protected function endpoint($path = null)
     {
-        return $this->request->post("{$this->endpoint}/get", get_defined_vars());
+        return '/connect/'.ltrim($path, '/');
     }
 }

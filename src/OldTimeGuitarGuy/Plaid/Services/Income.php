@@ -2,17 +2,25 @@
 
 namespace OldTimeGuitarGuy\Plaid\Services;
 
-use OldTimeGuitarGuy\Plaid\Contracts\ManagesUser;
-use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
-
-class Income extends Base\Service implements ManagesUser
+/**
+ * The Income endpoint allows you to retrieve various
+ * information pertaining to a user's income. In addition
+ * to the annual income, detailed information will be
+ * provided for each contributing income stream (or job).
+ *
+ * https://plaid.com/docs/api/#income
+ */
+class Income extends Base\UserService
 {
-    use UserManagement;
-
     /**
-     * The base endpoint for all requests
+     * Get the main endpoint for this service
      *
-     * @var string
+     * @param  string|null $path
+     * 
+     * @return string
      */
-    protected $endpoint = '/income';
+    protected function endpoint($path = null)
+    {
+        return '/income/'.ltrim($path, '/');
+    }
 }

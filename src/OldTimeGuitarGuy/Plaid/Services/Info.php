@@ -2,9 +2,6 @@
 
 namespace OldTimeGuitarGuy\Plaid\Services;
 
-use OldTimeGuitarGuy\Plaid\Contracts\ManagesUser;
-use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
-
 /**
  * The Info endpoint allows you to retrieve various
  * account holder information on file with the
@@ -13,14 +10,17 @@ use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
  *
  * https://plaid.com/docs/api/#info
  */
-class Info extends Base\Service implements ManagesUser
+class Info extends Base\UserService
 {
-    use UserManagement;
-
     /**
-     * The base endpoint for all requests
+     * Get the main endpoint for this service
      *
-     * @var string
+     * @param  string|null $path
+     * 
+     * @return string
      */
-    protected $endpoint = '/info';
+    protected function endpoint($path = null)
+    {
+        return '/info/'.ltrim($path, '/');
+    }
 }

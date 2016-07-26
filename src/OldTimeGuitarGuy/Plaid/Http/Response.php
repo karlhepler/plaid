@@ -12,7 +12,7 @@ class Response implements ResponseContract
      *
      * @var integer
      */
-    protected $statusCode;
+    protected $status;
 
     /**
      * The response content
@@ -28,7 +28,7 @@ class Response implements ResponseContract
      */
     public function __construct(ResponseInterface $response)
     {
-        $this->statusCode = $response->getStatusCode();
+        $this->status = $response->getStatusCode();
         $this->content = json_decode($response->getBody()->getContents());
     }
 
@@ -37,31 +37,39 @@ class Response implements ResponseContract
      *
      * @return integer
      */
-    public function statusCode()
+    public function status()
     {
-        return $this->statusCode;
+        return $this->status;
     }
 
     /**
-     * Dynamically reference the initial layer of the content
+     * If the method referenced is the name of
+     * a top-level array in the contents, then
+     * allow a callable to be passed that will
+     * return each result of an loop iteration
      *
      * @param  string $method
      * @param  array  $arguments
-     * 
-     * @return \stdClass
+     *
+     * @return void
+     *
      * @throws \BadMethodCallException
      */
     public function __call($method, array $arguments)
     {
-        if (! isset($this->content->{$method}) ) {
-            throw new \BadMethodCallException("{$method} is not a valid response method.");
+        if (! $this->isTopLevelArray($method) ) {
+            throw new \BadMethodCallException("{$method} is an invalid response method.");
         }
-        
-        return $this->content->{$method};
+
+        if ( $this->hasCallable($arguments) ) {
+            foreach ($this->content->{$method} as $key => $value) {
+                $arguments[0]($value, $key);
+            }
+        }
     }
 
     /**
-     * Reference methods as properties
+     * Directly reference the content json
      *
      * @param  string $value
      * 
@@ -69,7 +77,7 @@ class Response implements ResponseContract
      */
     public function __get($value)
     {
-        return $this->{$value}();
+        return $this->content->{$value};
     }
 
     /**
@@ -80,8 +88,40 @@ class Response implements ResponseContract
     public function __toString()
     {
         return json_encode([
-            'statusCode' => $this->statusCode,
+            'status' => $this->status,
             'content' => $this->content,
         ]);
+    }
+
+    ///////////////////////
+    // PROTECTED METHODS //
+    ///////////////////////
+
+    /**
+     * Determine if the given property
+     * is a top-level array in $this->content
+     *
+     * @param  string  $property
+     *
+     * @return boolean
+     */
+    protected function isTopLevelArray($property)
+    {
+        return isset($this->content->{$property})
+            && is_array($this->content->{$property});
+    }
+
+    /**
+     * Determine if the first index of the arguments
+     * is an instance of callable
+     *
+     * @param  array   $arguments
+     *
+     * @return boolean
+     */
+    protected function hasCallable(array $arguments)
+    {
+        return isset($arguments[0])
+            && is_callable($arguments[0]);
     }
 }

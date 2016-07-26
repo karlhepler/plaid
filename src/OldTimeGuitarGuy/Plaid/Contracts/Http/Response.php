@@ -10,18 +10,24 @@ interface Response
      * @return integer
      */
     public function statusCode();
-    
+
     /**
-     * Dynamically reference the initial layer of the content
+     * If the method referenced is the name of
+     * a top-level array in the contents, then
+     * allow a callable to be passed that will
+     * return each result of an loop iteration
      *
      * @param  string $method
      * @param  array  $arguments
-     * @return \stdClass
+     *
+     * @return void
+     *
+     * @throws \BadMethodCallException
      */
     public function __call($method, array $arguments);
 
     /**
-     * Reference methods as properties
+     * Directly reference the content json
      *
      * @param  string $value
      * @return mixed

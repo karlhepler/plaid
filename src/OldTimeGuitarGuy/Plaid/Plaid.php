@@ -15,15 +15,15 @@ class Plaid
      * @var array
      */
     protected $services = [
-        'connect' => Services\Connect::class,
         'auth' => Services\Auth::class,
-        // 'info' => Services\Info::class,
-        // 'income' => Services\Income::class,
-        // 'risk' => Services\Risk::class,
-        // 'balance' => Services\Balance::class,
-        // 'upgrade' => Services\Upgrade::class,
-        // 'institutions' => Services\Institutions::class,
-        // 'categories' => Services\Categories::class,
+        'info' => Services\Info::class,
+        'risk' => Services\Risk::class,
+        'income' => Services\Income::class,
+        'balance' => Services\Balance::class,
+        'connect' => Services\Connect::class,
+        'upgrade' => Services\Upgrade::class,
+        'categories' => Services\Categories::class,
+        'institutions' => Services\Institutions::class,
     ];
 
     /**

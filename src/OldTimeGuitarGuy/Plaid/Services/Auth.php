@@ -2,9 +2,6 @@
 
 namespace OldTimeGuitarGuy\Plaid\Services;
 
-use OldTimeGuitarGuy\Plaid\Contracts\ManagesUser;
-use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
-
 /**
  * The /auth endpoint allows you to collect a user's bank account and
  * routing number, along with basic account data and balances. The
@@ -17,26 +14,17 @@ use OldTimeGuitarGuy\Plaid\Traits\UserManagement;
  *
  * https://plaid.com/docs/api/#auth
  */
-class Auth extends Base\Service implements ManagesUser
+class Auth extends Base\UserService
 {
-    use UserManagement;
-
     /**
-     * The base endpoint for all requests
+     * Get the main endpoint for this service
      *
-     * @var string
+     * @param  string|null $path
+     * 
+     * @return string
      */
-    protected $endpoint = '/auth';
-
-    /**
-     * Get Auth Data
-     *
-     * @param  string $access_token
-     *
-     * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
-     */
-    public function getData($access_token)
+    protected function endpoint($path = null)
     {
-        return $this->request->post("{$this->endpoint}/get", compact('access_token'));
+        return '/auth/'.ltrim($path, '/');
     }
 }
