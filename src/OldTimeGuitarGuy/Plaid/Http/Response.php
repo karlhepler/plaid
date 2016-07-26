@@ -62,8 +62,8 @@ class Response implements ResponseContract
         }
 
         if ( $this->hasCallable($arguments) ) {
-            foreach ($this->content->{$method} as $key => $value) {
-                $arguments[0]($value, $key);
+            foreach ($this->content->{$method} as $value) {
+                $arguments[0]($value);
             }
         }
     }

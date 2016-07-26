@@ -4,6 +4,9 @@
     "require": {
         "guzzlehttp/guzzle": "^6.2"
     },
+    "require-dev": {
+        "phpunit/phpunit": "5.4.*"
+    },
     "license": "MIT",
     "authors": [
         {
@@ -16,5 +19,15 @@
         "psr-4": {
             "OldTimeGuitarGuy\\Plaid\\": "src/OldTimeGuitarGuy/Plaid/"
         }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/helpers/ServiceTest.php",
+            "tests/helpers/TestCredentials.php",
+            "tests/helpers/TestUser.php"
+        ],
+        "files": [
+            "tests/helpers/helpers.php"
+        ]
     }
 }

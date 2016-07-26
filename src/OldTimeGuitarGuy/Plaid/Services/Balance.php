@@ -18,16 +18,17 @@ use OldTimeGuitarGuy\Plaid\Contracts\User;
  *
  * https://plaid.com/docs/api/#balance
  */
-class Balance extends Base\UserService
+class Balance extends Base\Service
 {
     /**
      * Get the data this service returns
      *
      * @param  User   $user
+     * @param  array $options
      *
      * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
      */
-    public function get(User $user)
+    public function get(User $user, array $options = [])
     {
         return $this->request->post($this->endpoint(), [
             'access_token' => $user->accessToken(),

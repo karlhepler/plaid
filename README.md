@@ -25,8 +25,69 @@ Installation
 
 4. Reference the config file copied to `config/plaid.php`
 
+USAGE
+------
 
-TODO
------
-- [ ] Test the code
-- [ ] Write documentation!
+> I still need to write usage instructions. In the meantime, please reference the tests.
+> Everything should be fairly straight-forward.
+
+TESTS
+------
+```
+AuthService
+ [x] Add user
+ [x] Update user
+ [x] Delete user
+ [x] Upgrade user
+ [x] Get data
+
+BalanceService
+ [x] Get balance
+
+CategoriesService
+ [x] Get all categories
+ [x] Get category by id
+
+ConnectService
+ [x] Add user
+ [x] Update user
+ [x] Delete user
+ [x] Upgrade user
+ [x] Get data
+
+IncomeService
+ [x] Add user
+ [x] Update user
+ [x] Delete user
+ [x] Upgrade user
+ [x] Get data
+
+InfoService
+ [x] Add user
+ [x] Update user
+ [x] Delete user
+ [x] Upgrade user
+ [x] Get data
+
+InstitutionsService
+ [x] Get all institutions
+ [x] Get institution by type
+ [x] Get institution by id
+ [x] Search institutions
+ [x] Search institutions by id
+ [x] Get longtail institutions
+
+PlaidExceptionResponse
+ [x] Bad requests throw plaid request exception
+ [x] Plaid request exception provides plaid response
+
+Response
+ [x] Iterate through arrayable top level contents
+
+RiskService
+ [x] Add user
+ [x] Update user
+ [x] Delete user
+ [x] Upgrade user
+ [x] Get data
+```

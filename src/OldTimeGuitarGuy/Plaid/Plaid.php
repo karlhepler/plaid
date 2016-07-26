@@ -21,7 +21,6 @@ class Plaid
         'income' => Services\Income::class,
         'balance' => Services\Balance::class,
         'connect' => Services\Connect::class,
-        'upgrade' => Services\Upgrade::class,
         'categories' => Services\Categories::class,
         'institutions' => Services\Institutions::class,
     ];
@@ -83,6 +82,7 @@ class Plaid
             return $this->make($method);
         }
         catch (\Exception $e) {
+            dd($e->getMessage());
             throw new \BadMethodCallException("{$method} is an invalid Plaid service.");
         }
     }
