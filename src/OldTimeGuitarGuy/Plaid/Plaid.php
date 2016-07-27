@@ -83,7 +83,6 @@ class Plaid
             return $this->make($method);
         }
         catch (\Exception $e) {
-            dd($e->getMessage());
             throw new \BadMethodCallException("{$method} is an invalid Plaid service.");
         }
     }
