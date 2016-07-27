@@ -4,6 +4,17 @@ namespace OldTimeGuitarGuy\Plaid\Services;
 
 use OldTimeGuitarGuy\Plaid\Contracts\User;
 
+/**
+ * For an existing user that has been
+ * added via any of Plaid's products
+ * (Connect, Auth, Income, Info, or Risk),
+ * you can upgrade that user to have functionality
+ * with other products. To upgrade a user - as
+ * specified by their ACCESS_TOKEN - send a
+ * request with the following parameters.
+ *
+ * https://plaid.com/docs/api/#upgrade
+ */
 class Upgrade extends Base\Service
 {
     /**
@@ -17,7 +28,7 @@ class Upgrade extends Base\Service
      *
      * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
      */
-    public function to(User $user, $product, $options = [])
+    public function user(User $user, $product, $options = [])
     {
         return $this->request->post($this->endpoint(), [
             'access_token' => $user->accessToken(),

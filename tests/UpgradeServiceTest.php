@@ -4,11 +4,11 @@ use OldTimeGuitarGuy\Plaid\Contracts\Http\Response;
 
 class UpgradeServiceTest extends ServiceTest
 {
-    public function testTo()
+    public function testUpgradeUser()
     {
         $this->assertInstanceOf(
             Response::class,
-            $this->plaid()->upgrade()->to($this->user(), 'risk')
+            $this->plaid()->upgrade()->user($this->user(), 'risk')
         );
     }
 }

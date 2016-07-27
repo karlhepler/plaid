@@ -32,10 +32,9 @@ TESTS
 ```
 AuthService
  [x] Add user
- [x] User mfa
+ [x] User step
  [x] Update user
  [x] Delete user
- [x] Upgrade user
  [x] Get data
 
 BalanceService
@@ -47,26 +46,23 @@ CategoriesService
 
 ConnectService
  [x] Add user
- [x] User mfa
+ [x] User step
  [x] Update user
  [x] Delete user
- [x] Upgrade user
  [x] Get data
 
 IncomeService
  [x] Add user
- [x] User mfa
+ [x] User step
  [x] Update user
  [x] Delete user
- [x] Upgrade user
  [x] Get data
 
 InfoService
  [x] Add user
- [x] User mfa
+ [x] User step
  [x] Update user
  [x] Delete user
- [x] Upgrade user
  [x] Get data
 
 InstitutionsService
@@ -86,9 +82,11 @@ Response
 
 RiskService
  [x] Add user
- [x] User mfa
+ [x] User step
  [x] Update user
  [x] Delete user
- [x] Upgrade user
  [x] Get data
+
+UpgradeService
+ [x] Upgrade user
 ```
