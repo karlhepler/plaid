@@ -12,11 +12,11 @@ class RiskServiceTest extends ServiceTest
         );
     }
 
-    public function testUserMfa()
+    public function testUserStep()
     {
         $this->assertInstanceOf(
             Response::class,
-            $this->plaid()->risk()->user()->mfa($this->user('test_bofa'), 'tomato')
+            $this->plaid()->risk()->user()->step($this->user('test_bofa'), 'tomato')
         );
     }
 
@@ -33,14 +33,6 @@ class RiskServiceTest extends ServiceTest
         $this->assertInstanceOf(
             Response::class,
             $this->plaid()->risk()->user()->delete($this->user())
-        );
-    }
-
-    public function testUpgradeUser()
-    {
-        $this->assertInstanceOf(
-            Response::class,
-            $this->plaid()->risk()->user()->upgrade($this->user(), 'info')
         );
     }
 

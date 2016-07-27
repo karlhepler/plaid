@@ -68,7 +68,7 @@ class UserManager extends Endpoint
      *
      * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
      */
-    public function mfa(User $user, $answer, $options = [])
+    public function step(User $user, $answer, $options = [])
     {
         return $this->request->post($this->endpoint('step'), [
             'mfa' => $answer,
@@ -106,26 +106,6 @@ class UserManager extends Endpoint
     {
         return $this->request->delete($this->endpoint(), [
             'access_token' => $user->accessToken(),
-        ]);
-    }
-
-    /**
-     * Upgrade a User
-     *
-     * https://plaid.com/docs/api/#upgrade-user
-     *
-     * @param  User   $user
-     * @param  string $product The product to add for the user: auth, connect, income, info, or risk.
-     * @param  array  $options
-     *
-     * @return \OldTimeGuitarGuy\Plaid\Contracts\Http\Response
-     */
-    public function upgrade(User $user, $product, $options = [])
-    {
-        return $this->request->post('/upgrade', [
-            'access_token' => $user->accessToken(),
-            'upgrade_to' => $product,
-            'options' => $options,
         ]);
     }
 

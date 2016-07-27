@@ -21,6 +21,7 @@ class Plaid
         'income' => Services\Income::class,
         'balance' => Services\Balance::class,
         'connect' => Services\Connect::class,
+        'upgrade' => Services\Upgrade::class,
         'categories' => Services\Categories::class,
         'institutions' => Services\Institutions::class,
     ];

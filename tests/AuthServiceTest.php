@@ -12,11 +12,11 @@ class AuthServiceTest extends ServiceTest
         );
     }
 
-    public function testUserMfa()
+    public function testUserStep()
     {
         $this->assertInstanceOf(
             Response::class,
-            $this->plaid()->auth()->user()->mfa($this->user('test_bofa'), 'tomato')
+            $this->plaid()->auth()->user()->step($this->user('test_bofa'), 'tomato')
         );
     }
 
@@ -33,14 +33,6 @@ class AuthServiceTest extends ServiceTest
         $this->assertInstanceOf(
             Response::class,
             $this->plaid()->auth()->user()->delete($this->user())
-        );
-    }
-
-    public function testUpgradeUser()
-    {
-        $this->assertInstanceOf(
-            Response::class,
-            $this->plaid()->auth()->user()->upgrade($this->user(), 'connect')
         );
     }
 

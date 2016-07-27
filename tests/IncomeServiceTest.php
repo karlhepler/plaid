@@ -12,11 +12,11 @@ class IncomeServiceTest extends ServiceTest
         );
     }
 
-    public function testUserMfa()
+    public function testUserStep()
     {
         $this->assertInstanceOf(
             Response::class,
-            $this->plaid()->income()->user()->mfa($this->user('test_bofa'), 'tomato')
+            $this->plaid()->income()->user()->step($this->user('test_bofa'), 'tomato')
         );
     }
 
@@ -33,14 +33,6 @@ class IncomeServiceTest extends ServiceTest
         $this->assertInstanceOf(
             Response::class,
             $this->plaid()->income()->user()->delete($this->user())
-        );
-    }
-
-    public function testUpgradeUser()
-    {
-        $this->assertInstanceOf(
-            Response::class,
-            $this->plaid()->income()->user()->upgrade($this->user(), 'risk')
         );
     }
 
