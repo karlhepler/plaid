@@ -87,10 +87,7 @@ class Response implements ResponseContract
      */
     public function __toString()
     {
-        return json_encode([
-            'status' => $this->status,
-            'content' => $this->content,
-        ]);
+        return json_encode($this->content);
     }
 
     ///////////////////////
