@@ -59,18 +59,17 @@ class Plaid
      */
     public function make($service)
     {
-        try {
-            // If we already have an instance, then just return it
-            if ( isset($this->instances[$service]) ) {
-                return $this->instances[$service];
-            }
-
-            // Otherwise, create it, save it, & return it
-            return $this->instances[$service] = new $this->services[$service]($this->request);
-        }
-        catch (\Exception $e) {
+        if (! isset($this->services[$service])) {
             throw new \BadMethodCallException("{$method} is not a supported Plaid service.");
         }
+
+        // If we already have an instance, then just return it
+        if ( isset($this->instances[$service]) ) {
+            return $this->instances[$service];
+        }
+
+        // Otherwise, create it, save it, & return it
+        return $this->instances[$service] = new $this->services[$service]($this->request);
     }
 
     /**

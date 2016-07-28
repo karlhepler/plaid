@@ -7,9 +7,9 @@ use OldTimeGuitarGuy\Plaid\Http\Request;
 
 class ServiceTest extends TestCase
 {
-    private $plaid;
-    private $credentials;
-    private $user;
+    private static $plaid;
+    private static $credentials;
+    private static $user;
 
     /**
      * Get a singleton instance of Plaid
@@ -18,8 +18,8 @@ class ServiceTest extends TestCase
      */
     protected function plaid()
     {
-        if (isset($this->plaid)) {
-            return $this->plaid;
+        if (isset(self::$plaid)) {
+            return self::$plaid;
         }
 
         $request = new Request(
@@ -29,7 +29,7 @@ class ServiceTest extends TestCase
             false
         );
 
-        return $this->plaid = new Plaid($request);
+        return self::$plaid = new Plaid($request);
     }
 
     /**
@@ -39,11 +39,11 @@ class ServiceTest extends TestCase
      */
     protected function credentials()
     {
-        if (isset($this->credentials)) {
-            $this->credentials;
+        if (isset(self::$credentials)) {
+            self::$credentials;
         }
 
-        return $this->credentials = new TestCredentials;
+        return self::$credentials = new TestCredentials;
     }
 
     /**
@@ -58,10 +58,10 @@ class ServiceTest extends TestCase
             return new TestUser($accessToken);
         }
 
-        if (isset($this->user)) {
-            return $this->user;
+        if (isset(self::$user)) {
+            return self::$user;
         }
 
-        return $this->user = new TestUser('test_wells');
+        return self::$user = new TestUser('test_wells');
     }
 }
