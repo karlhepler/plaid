@@ -13,6 +13,8 @@ Installation
 
 ### _Laravel Only_
 
+> Just to reiterate... **LARAVEL IS NOT REQUIRED TO USE THIS API CLIENT**
+
 1. Add the following line to `config/app.php@providers`: `OldTimeGuitarGuy\Plaid\Laravel\PlaidServiceProvider::class,`
 
 2. For facade access, add the following line to `config/app.php@aliases`: `'Plaid' => OldTimeGuitarGuy\Plaid\Laravel\PlaidFacade::class,`
@@ -26,6 +28,8 @@ USAGE
 
 > I still need to write usage instructions. In the meantime, please reference the tests.
 > Everything should be fairly straight-forward.
+>
+> **ALSO**, check out my response to [this issue question](https://github.com/oldtimeguitarguy/plaid/issues/1)
 
 TESTS
 ------
